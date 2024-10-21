@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   
-  const [usuario, setUsuario] = useState([]);
+  const [Usuario, setUsuario] = useState([]);
 
   useEffect(() => { 
 
     const buscarUsuario  = async () => {
-    const resposta = await fetch('https://jsonplaceholder.typicode.com/todos');
-        const dados = await resposta.json();
+    const Usuario = await fetch('https://jsonplaceholder.typicode.com/todos');
+        const dados = await Usuario.json();
         setUsuario(dados);
     }
     buscarUsuario();
@@ -18,10 +18,10 @@ export default function App() {
     <>
       <h1>Buscar Usuários</h1>
       <ul>
-        {usuario.map(usuario => (
+        {Usuario.map(usuario => (
           <li key={usuario.userId}>
             <p>{usuario.id}</p>
-            <h2>{usuario.title}</h2>
+            <p>{usuario.completed}</p>
           </li>
         ))}
       </ul>
